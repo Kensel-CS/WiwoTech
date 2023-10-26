@@ -1,26 +1,102 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>USUARIO - CLASES YA</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="shortcut icon" href="img/CLASES-YA-ICONO.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css"> </head>
-  <body>
-    <section class="content">
-      <div class="row">
-        <div class="col-md-6">
-          <div id="meet"></div>
-        </div>
+{% extends 'layouts/normal/base2.html' %}
+{% load static %}
+
+{% block css %}
+<style>
+  body {
+    background-color: black;
+  }
+
+  .jss7.jss9.toggleFilmstripContainer {
+    display: none;
+  }
+
+  .filmstrip__videos {
+    display: none;
+  }
+</style>
+{% endblock %}
+
+{% block contenido %}
+
+<body>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-6">
+        <div id="meet"></div>
       </div>
-    </section>
-    
+    </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 
-    <script src="https://meet.jit.si/external_api.js"></script>
-    <script src="js/user.js"></script>
-  </body>
-</html>
+  <script src="https://meet.jit.si/external_api.js"></script>
+
+</body>
+{% endblock %}
+
+{% block js %}
+<script>
+  var interfaceConfig = {
+
+      TOOLBAR_BUTTONS: [
+        // 'microphone',
+        // 'camera',
+        // 'closedcaptions',
+        // 'desktop',
+        // 'fullscreen',
+        // 'fodeviceselection',
+        // 'hangup',                //SAlir
+        // 'profile',
+        // 'info',               //ver el link
+        'chat',
+        // 'recording',             //grabar
+        // 'livestreaming',      //admin lo puede hacer
+        // 'etherpad',
+        // 'sharedvideo',        //admin lo puede hacer
+        // 'settings',
+        // 'raisehand',              //manito
+        'videoquality',           //calidad de video
+        // 'filmstrip',
+        // 'invite',
+        // 'feedback',
+        // 'stats',
+        // 'shortcuts',
+        'tileview',
+        // 'videobackgroundblur',
+        // 'download',
+        // 'help',
+        // 'mute-everyone',    //administrador
+        // 'e2ee'
+      ],
+
+      SETTINGS_SECTIONS: [
+        'devices',
+        'language',
+        'moderator',
+        'profile',
+        // 'calendar'
+      ],
+      // MOBILE_APP_PROMO: false, // no android
+      SHOW_CHROME_EXTENSION_BANNER: false
+    };
+
+    const domain = 'meet.jit.si';
+    const options = {
+      roomName: 'Gaming Crew TV',
+      width: '100%',
+      height: 700,
+      parentNode: document.querySelector('#meet'),
+      userInfo: {
+        email: "user@gmail.com",
+        displayName: "{{ request.user.username }}",
+      },
+      noSsl: true,
+      interfaceConfigOverwrite: interfaceConfig,
+    };
+    const api = new JitsiMeetExternalAPI(domain, options);
+</script>
+
+{% endblock %}

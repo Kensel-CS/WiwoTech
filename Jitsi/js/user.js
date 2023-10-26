@@ -50,7 +50,7 @@ const options = {
     parentNode: document.querySelector('#meet'),
     userInfo: {
         email: "user@gmail.com",
-        displayName: "ALUMNO CLASES YA",
+        displayName: "Usuario",
     },
     noSsl: true,
     interfaceConfigOverwrite: interfaceConfig,

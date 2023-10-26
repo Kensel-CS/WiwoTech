@@ -3,6 +3,22 @@
 
 {% block css %}
   <style>
+
+    body {
+      background-image: url("{% static 'img/fondo-oscuro.jpg' %}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Esto asegura que el cuerpo ocupe al menos toda la altura de la pantalla */
+    }
+
+    .content-container {
+      flex: 1; /* Esto hace que el contenido ocupe el espacio restante en la parte central */
+    }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -10,13 +26,13 @@
       -moz-user-select: none;
       user-select: none;
     }
-    
+
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
       }
     }
-    
+
     .b-example-divider {
       width: 100%;
       height: 3rem;
@@ -25,25 +41,25 @@
       border-width: 1px 0;
       box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
     }
-    
+
     .b-example-vr {
       flex-shrink: 0;
       width: 1.5rem;
       height: 100vh;
     }
-    
+
     .bi {
       vertical-align: -0.125em;
       fill: currentColor;
     }
-    
+
     .nav-scroller {
       position: relative;
       z-index: 2;
       height: 2.75rem;
       overflow-y: hidden;
     }
-    
+
     .nav-scroller .nav {
       display: flex;
       flex-wrap: nowrap;
@@ -54,11 +70,11 @@
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
     }
-    
+
     .btn-bd-primary {
       --bd-violet-bg: #712cf9;
       --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-    
+
       --bs-btn-font-weight: 600;
       --bs-btn-color: var(--bs-white);
       --bs-btn-bg: var(--bd-violet-bg);
@@ -71,20 +87,20 @@
       --bs-btn-active-bg: #5a23c8;
       --bs-btn-active-border-color: #5a23c8;
     }
-    
+
     .bd-mode-toggle {
       z-index: 1500;
     }
-    
+
     .bd-mode-toggle .dropdown-menu .active .bi {
       display: block !important;
     }
-    
+
     .card {
       width: 100%;
       height: 100%;
     }
-    
+
     .card:hover {
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Añadimos una sombra al hacer hover */
       transform: scale(1.02);
@@ -94,65 +110,59 @@
 
 {% block contenido %}
   <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center"><strong>📚 megabiblioteca.cl 📚</strong></a>
+    <div class="container content-container">
+      <a href="#" class="navbar-brand d-flex align-items-center"><strong>Gamingcrew.cl</strong></a>
       <div>
         {% if perfil == 'admin' %}
           <a type="button" class="btn btn-sm btn-info" href="{% url 'admin_index' %}">Administrador</a>
         {% endif %}
-        <a type="button" class="btn btn-sm btn-danger" href="{% url 'logout' %}">Cerrar sesión</a>
+        <a type="button" class="btn btn-sm btn-warning" href="{% url 'logout' %}">Cerrar sesión</a>
       </div>
     </div>
   </div>
   <main>
-    <header class="bg-danger text-dark text-center py-4">
-      <h1 class="display-4">📚 <strong>Megabiblioteca</strong> 📚</h1>
-      <p class="lead">Tu Destino Literario en Línea</p>
+    <header class="bg-primary text-light text-center py-4">
+      <h1 class="display-4"> <strong>Gaming Crew TV</strong> </h1>
 
-      <span class="badge bg-dark">¡Hola {{ request.user.first_name }} 👋 !</span>
+
+      <span class="badge bg-dark">¡Hola, {{ request.user.first_name }} 👋 !</span>
     </header>
-    <div class="container mt-2">
-      <div class="row">
-        <div class="col-12">
-          <ul class="nav nav-pills nav-fill">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">TODAS</a>
-            </li>
-            {% for categoria in categorias %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'home_categoria' categoria.url %}">{{ categoria.nombre }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-      <h4 class="text-center mt-3">{{ categoria.nombre }}</h4>
-    </div>
 
-    <div class="album py-5 bg-body-tertiary">
-      <div class="container">
-        <div class="row">
-          {% for libro in libros %}
-            <div class="col-6 col-md-4 col-lg-2 mb-3">
-              <div class="card shadow">
-                <img src="{% static libro.imagen %}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" />
-                <div class="card-body">
-                  <p class="badge bg-primary mb-3">{{ libro.categoria }}</p>
-                  <br />
-                  <small class="text-end">Código: {{ libro.codigo }}</small>
-                  <h6 class="card-title">{{ libro.nombre }}</h6>
-                  {% comment %} <p class="card-text">{{ libro.descripcion }}</p> {% endcomment %}
-                  {% comment %} <p class="card-text">Stock: {{ libro.stock }}</p> {% endcomment %}
-                </div>
-                <div class="d-grid p-2">
-                  {% comment %} <a href="{% url 'ver_libro' %}" class="btn btn-sm btn-outline-secondary">Ver libro</a> {% endcomment %}
-                  <a href="{% url 'home_libro' libro.codigo %}" class="btn btn-sm btn-outline-secondary">VER</a>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
+  <div class="container">
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-6">
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <a class="btn btn-dark" href="{% url 'iniciado' %}">Stremear</a>
+          <a class="btn btn-info" href="{% url 'user' %}">Ver transmision</a>
         </div>
+
+        <!-- <div class="container mt-5">
+          <div class="row">
+              <div class="col-md-8">
+                  <h2>Descubre un Mundo de Libros</h2>
+                  <p>Nuestro extenso catálogo te llevará en un viaje literario sin fin. Desde los bestsellers más recientes hasta los clásicos intemporales, desde novelas emocionantes hasta recursos educativos, Megabiblioteca lo tiene todo. Cada libro es cuidadosamente seleccionado para satisfacer una amplia variedad de intereses y gustos.</p>
+              </div>
+              <div class="col-md-4">
+                  <img src="{% static 'img/pexels-eneida-nieves-1222551.jpg' %}" alt="Librería" class="img-fluid rounded">
+              </div>
+          </div>
+      </div>
+
+      <div class="container mt-5">
+          <div class="row">
+              <div class="col-md-4">
+                  <img  src="{% static 'img/pexels-malte-luk-1848924.jpg' %}" alt="Comodidad" class="img-fluid rounded">
+              </div>
+              <div class="col-md-8">
+                  <h2>Comodidad en Tus Manos</h2>
+                  <p>En Megabiblioteca, creemos en la comodidad. Puedes explorar y comprar libros en línea desde la comodidad de tu hogar o desde cualquier lugar en el que te encuentres. Ofrecemos libros en formato digital y físico, para que puedas elegir cómo prefieres disfrutar de tus lecturas.</p>
+              </div>
+          </div>
+      </div>
       </div>
     </div>
-  </main>
+  </div> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 {% endblock %}

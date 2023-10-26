@@ -33,7 +33,7 @@ python manage.py migrate
 
 4. Crea un superusuario para acceder al panel de administración (sigue las instrucciones en la consola):
 
-```bash
+```bash 
 python manage.py createsuperuser
 ```
 

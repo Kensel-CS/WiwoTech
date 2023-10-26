@@ -14,6 +14,13 @@ from django.http import JsonResponse
 def index(request):
     return render(request, 'index.html')
 
+def prenderStream(request):
+    return render(request, 'iniciado.html')
+
+def verStream(request):
+    return render(request, 'user.html')
+
+
 # AUTH
 def inicio_sesion(request):
     if request.method == 'POST':

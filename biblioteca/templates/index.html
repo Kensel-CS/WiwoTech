@@ -4,6 +4,18 @@
 {% block css %}
 
 <style>
+
+  body {
+    background-image: url("{% static 'img/noot.png' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Esto asegura que el cuerpo ocupe al menos toda la altura de la pantalla */
+  }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -80,6 +92,10 @@
     .bd-mode-toggle .dropdown-menu .active .bi {
       display: block !important;
     }
+
+    .xd {
+      color: aliceblue;
+    }
 </style>
 
 {% endblock %}
@@ -89,8 +105,9 @@
 <div class="navbar navbar-dark bg-dark shadow-sm">
   <div class="container">
     <a href="#" class="navbar-brand d-flex align-items-center">
-      <strong>📚 megabiblioteca.cl 📚</strong>
+      <strong> Gaming Crew TV 🎮</strong>
     </a>
+    
     <a type="button" class="btn btn-sm btn-primary" href="{% url 'login' %}">Iniciar sesión</a>
 
     {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,12 +118,18 @@
 
 <main>
 
-<header class="bg-warning text-dark text-center py-5">
-    <h1 class="display-4">📚 <strong>Megabiblioteca</strong> 📚</h1>
-    <p class="lead">Tu Destino Literario en Línea</p>
+<header class="bg-primary text-light text-center py-5">
+    <h1 class="display-4"> <strong>Gaming Crew TV</strong> 🎮</h1>
+    <p class="lead">Tu mundo, tu pantalla, tu streaming</p>
 </header>
 
-<div class="container mt-5">
+
+<body>
+
+<h2 class="bg-primary text-light text-center py-5">¡Bienvenido a Gaming Crew TV!</h2>
+<p class="bg-primary text-light text-center py-5">¡Únete a Gaming Crew TV y sé parte de la comunidad de gaming en crecimiento! Transmite tus juegos en vivo, conecta con otros jugadores y espectadores, y construye tu audiencia. ¿Estás listo para sumergirte en el emocionante mundo de los videojuegos? ¡Únete a nosotros hoy mismo en Gaming Crew TV!</p>
+</body>
+<!-- <div class="container mt-5">
     <div class="row">
         <div class="col-md-8">
             <h2>Descubre un Mundo de Libros</h2>
@@ -128,7 +151,7 @@
             <p>En Megabiblioteca, creemos en la comodidad. Puedes explorar y comprar libros en línea desde la comodidad de tu hogar o desde cualquier lugar en el que te encuentres. Ofrecemos libros en formato digital y físico, para que puedas elegir cómo prefieres disfrutar de tus lecturas.</p>
         </div>
     </div>
-</div>
+</div> -->
 </main>
 
 {% endblock %}
