@@ -15,7 +15,7 @@ def index(request):
     return render(request, 'index.html')
 
 def prenderStream(request):
-    return render(request, 'admin.html')
+    return render(request, 'iniciado.html')
 
 def verStream(request):
     return render(request, 'user.html')

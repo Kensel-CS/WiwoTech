@@ -5,7 +5,7 @@ from .routes import viewsAdmin
 
 urlpatterns = [
   path('', views.index, name='index'),
-  path('admin', views.prenderStream, name='admin'),
+  path('iniciado', views.prenderStream, name='iniciado'),
   path('user', views.verStream, name='user'),
   path('auth/login', views.inicio_sesion, name='login'),
   path('auth/registrar', views.registar, name='registrar'),
