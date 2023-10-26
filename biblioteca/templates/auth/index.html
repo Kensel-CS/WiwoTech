@@ -2,61 +2,69 @@
 {% load static %}
 
 {% block css %}
-    <style>
-        body {
-            background-image: url("{% static 'img/biblioteca.jpeg' %}");
-            background-size: cover; /* Para que la imagen cubra todo el fondo */
-            background-repeat: no-repeat; /* Evita que la imagen se repita */
-        }
-    </style>
+<style>
+  body {
+    background-image: url("{% static 'img/fondo.jpg' %}");
+    background-size: cover;
+    /* Para que la imagen cubra todo el fondo */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* Esto asegura que el cuerpo ocupe al menos toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-container {
+    flex: 1; /* Esto hace que el contenido ocupe el espacio restante en la parte central */
+  }
+</style>
 {% endblock %}
 
 {% block contenido %}
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-4 mt-5">
-            <div class="card">
-                <div class="card-body">
-                <p class="fw-light text-center">
-                    Iniciar Sesión <br>
-                    <strong>📚 megabiblioteca.cl 📚</strong>
-                </p>
-                <form action="{% url 'login' %}" method="POST">
-                    {% csrf_token %}
+<div class="container content-container d-flex justify-content-center align-items-center">
+  <div class="col-md-4 mt-5">
+    <div class="card">
+      <div class="card-body">
+          <p class="fw-light text-center">
+            Iniciar Sesión
+            <br>
+            <strong>🐧 Gaming Crew TV 🐧</strong>
+          </p>
+          <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
 
-                    {% include 'layouts/_alert.html' %}
+            {% include 'layouts/_alert.html' %}
 
-                    {% if error %}
-                        <small class="text-danger">{{ error }}</small>
-                    {% endif %}
+            {% if error %}
+            <small class="text-danger">{{ error }}</small>
+            {% endif %}
 
-                    <div class="mb-3">
-                        <label for="" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" name="usuario" id="usuario" required>
-                        <small class="text-danger" id="usuario-error"></small>
-                    </div>
-
-                    <div class="mb-3">
-                        <div class="mb-3 d-flex justify-content-between align-items-center">
-                            <label for="pass" class="mb-0">Contraseña</label>
-                            <a href="{% url 'recuperar' %}" class="text-end">Recuperar contraseña</a>
-                        </div>
-                        <input type="password" class="form-control" name="pass" id="pass" required>
-                        <small class="text-danger" id="pass-error"></small>
-                    </div>
-            
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-warning text-dark"><strong>INICIAR SESIÓN</strong></button>
-
-                        <a href="{% url 'registrar' %}" class="btn btn-dark mt-3"><strong>Registar usuario</strong></a>
-
-
-                    </div>
-                </form>
+            <div class="mb-3">
+              <label for="" class="form-label">Usuario</label>
+              <input type="text" class="form-control" name="usuario" id="usuario" required>
+              <small class="text-danger" id="usuario-error"></small>
             </div>
+
+            <div class="mb-3">
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <label for="pass" class="mb-0">Contraseña</label>
+                <a href="{% url 'recuperar' %}" class="text-end">Recuperar contraseña</a>
+              </div>
+              <input type="password" class="form-control" name="pass" id="pass" required>
+              <small class="text-danger" id="pass-error"></small>
             </div>
-        </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary text-light"><strong>INICIAR SESIÓN</strong></button>
+
+              <a href="{% url 'registrar' %}" class="btn btn-dark mt-3"><strong>Registar usuario</strong></a>
+            </div>
+          </form>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
-    
