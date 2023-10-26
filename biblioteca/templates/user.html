@@ -85,13 +85,13 @@
 
     const domain = 'meet.jit.si';
     const options = {
-      roomName: 'WiwoTech',
+      roomName: 'Gaming Crew TV',
       width: '100%',
-      height: 500,
+      height: 700,
       parentNode: document.querySelector('#meet'),
       userInfo: {
         email: "user@gmail.com",
-        displayName: "ALUMNO CLASES YA",
+        displayName: "{{ request.user.username }}",
       },
       noSsl: true,
       interfaceConfigOverwrite: interfaceConfig,
@@ -100,5 +100,3 @@
 </script>
 
 {% endblock %}
-
-```
