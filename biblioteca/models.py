@@ -32,3 +32,6 @@ class Pedido(models.Model):
     libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
     cliente = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     estado = models.IntegerField(default=1)
+
+class MyModel(models.Model):
+    data = models.CharField(max_length=255)

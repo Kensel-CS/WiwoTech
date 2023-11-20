@@ -18,82 +18,20 @@
 {% endblock %}
 
 {% block contenido %}
-  <body>
-    <section class="content">
-      <div class="row">
-        <div class="col-md-6">
-          <div id="meet"></div>
-        </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div id="meet">
+        <iframe src="https://wiwo-tech-test.vercel.app/channel/bigfixita/host" width="100%" height="800px"></iframe>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-    <script src="https://meet.jit.si/external_api.js"></script>
-
-  </body>
 {% endblock %}
 
 {% block js %}
-<script>
-  var interfaceConfig = {
 
-    TOOLBAR_BUTTONS: [
-      'microphone',
-      'camera',
-      'closedcaptions',
-      'desktop',
-      'fullscreen',
-      'fodeviceselection',
-      'hangup',                //SAlir
-      'profile',
-      // 'info',               //ver el link
-      'chat',
-      'recording',             //grabar
-      'livestreaming',      //admin lo puede hacer
-      'etherpad',
-      // 'sharedvideo',        //admin lo puede hacer
-      'settings',
-      'raisehand',              //manito
-      'videoquality',           //calidad de video
-      'filmstrip',
-      'invite',
-      'feedback',
-      'stats',
-      'shortcuts',
-      'tileview',
-      'videobackgroundblur',
-      'download',
-      'help',
-      'mute-everyone',    //administrador
-      'e2ee'
-    ],
-
-    SETTINGS_SECTIONS: [
-      'devices',
-      'language',
-      'moderator',
-      'profile',
-      // 'calendar'
-    ],
-    SHOW_CHROME_EXTENSION_BANNER: false
-  };
-
-  const domain = 'meet.jit.si';
-  const options = {
-    roomName: 'Gaming Crew TV',
-    width: '100%',
-    height: 700,
-    parentNode: document.querySelector('#meet'),
-    userInfo: {
-      email: "admin@gmail.com",
-      displayName: "{{ request.user.username }}",
-    },
-    noSsl: true,
-    interfaceConfigOverwrite: interfaceConfig,
-  };
-  const api = new JitsiMeetExternalAPI(domain, options);
-</script>
 {% endblock %}
 
 ```

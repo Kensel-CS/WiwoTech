@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_api',
     'rest_framework.authtoken',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -110,7 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',  # Agrega esta línea para la autenticación de tokens
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',# Agrega esta línea para la autenticación de tokens
     ],
 }
 
