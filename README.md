@@ -80,3 +80,6 @@ requests==2.31.0
 
 Unidecode==1.3.7
 ```
+
+
+https://chat.openai.com/share/1e96e2d2-97a5-45bd-947b-d471dc4b3459
