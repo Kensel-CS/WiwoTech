@@ -16,7 +16,8 @@ Sigue estos pasos para configurar el entorno de desarrollo:
 1. Clona el repositorio desde GitHub:
 
 ```bash
-git clone https://github.com/profe-benja/megabiblioteca-django
+git clone https://github.com/Kensel-CS/wiwoTech-Test
+
 ```
 
 2. Instala las dependencias del proyecto desde el archivo `requirements.txt`:
@@ -81,5 +82,3 @@ requests==2.31.0
 Unidecode==1.3.7
 ```
 
-
-https://chat.openai.com/share/1e96e2d2-97a5-45bd-947b-d471dc4b3459
