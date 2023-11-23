@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .decorators import role_required
 from django.contrib.auth.models import User
 from django.contrib import messages
+import jwt
 
 ## REQUESTS
 import requests
@@ -18,7 +19,17 @@ def prenderStream(request):
     return render(request, 'iniciado.html')
 
 def verStream(request):
-    return render(request, 'user.html')
+    secret_key = 'hola'
+    payload = {
+        'usuario': 'admin',
+        'pass': '123'
+    }
+    encoded_jwt = jwt.encode(payload, secret_key, algorithm='HS256')
+
+    context = {
+        'token': encoded_jwt
+    }
+    return render(request, 'user.html', context)
 
 
 # AUTH
