@@ -18,6 +18,15 @@ def index(request):
 def prenderStream(request):
     return render(request, 'iniciado.html')
 
+def wiwo(request):
+    return render(request, 'wiwo.html')
+
+def teamsadistic(request):
+    return render(request, 'teamsadistic.html')
+
+def bigfixita(request):
+    return render(request, 'bigfixita.html')
+
 def verStream(request):
     secret_key = 'hola'
     payload = {

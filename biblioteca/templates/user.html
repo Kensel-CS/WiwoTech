@@ -124,25 +124,67 @@
       </div>
     </div>
   </div>
-  <main>
+  <div>
     <header class="bg-primary text-light text-center py-4">
       <h1 class="display-4"> <strong>Gaming Crew TV</strong> </h1>
-
-
       <span class="badge bg-dark">¡Hola, {{ request.user.first_name }} 👋 !</span>
     </header>
 
-  <div class="container">
-    <div class="container-fluid screen">
-      <div class="row h-100">
-        <div class="col-12">
+    <!-- <div class="container">
+      <div class="container-fluid screen">
+        <div class="row h-100">
+          <div class="col-12">
             <iframe src="https://wiwo-tech-test.vercel.app/channel/kensel?name={{request.user.first_name}}&token={{ token }}" width="100%" height="100%" allow="autoplay; camera; microphone;"></iframe>
+          </div>
+        </div>
+      </div> -->
+
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card bg-black text-white">
+            <img src="{% static 'img/lol.jpg' %}" class="card-img-top" alt="Transmisión 1">
+            <div class="card-body">
+              <h5 class="card-title">Wiwo</h5>
+              <p class="card-text">Jugando lolein | PROMO A CHALLENGER
+                <br> #lol #challenger #promochallenger #LAS
+              </p>
+              <a href="{% url 'wiwo' %}" class="btn btn-primary w-100">Ver en vivo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card bg-black text-white">
+            <img src="{% static 'img/fixita.jpg' %}" class="card-img-top" alt="Transmisión 2">
+            <div class="card-body">
+              <h5 class="card-title">BiG Fixita#LAS</h5>
+              <p class="card-text">Amasando en vovi 🍞
+                <br> #valorant #radiante #LAS
+              </p>
+              <a href="{% url 'bigfixita' %}" class="btn btn-primary w-100">Ver en vivo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card bg-black text-white">
+            <img src="{% static 'img/teclado.jpg' %}" class="card-img-top" alt="Transmisión 3">
+            <div class="card-body">
+              <h5 class="card-title">Team Sadistic</h5>
+              <p class="card-text">Jugando Fornite con la Masturbanda 😎 <br> ENTRAA  #fornite #team #highlights</p>
+              <a href="{% url 'teamsadistic' %}" class="btn btn-primary w-100">Ver en vivo</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  >
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </main>
 {% endblock %}
+
+

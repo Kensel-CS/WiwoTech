@@ -4,7 +4,7 @@
 {% block css %}
     <style>
         body {
-            background-image: url("{% static 'img/biblioteca.jpeg' %}");
+            background-image: url("{% static 'img/fondo.jpg' %}");
             background-size: cover; /* Para que la imagen cubra todo el fondo */
             background-repeat: no-repeat; /* Evita que la imagen se repita */
         }
@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                 <p class="fw-light text-center">
-                    Registro de usuarios <br>  <strong>📚 megabiblioteca.cl 📚</strong> 
+                    Registro de usuarios <br>  <strong>🐧Gamingcrew.cl🐧</strong>
                 </p>
                 <form action="{% url 'registrar' %}" method="POST">
                     {% csrf_token %}
@@ -57,18 +57,18 @@
                         <small class="text-danger" id="pass-error"></small>
                     </div>
 
-                    
-                    <div class="form-group mb-3">
+
+                    <!-- <div class="form-group mb-3">
                         <label for="tipo" class="form-label">Tipo</label>
                         <select class="custom-select form-select" name="tipo" id="tipo" required>
                             <option value="admin">Admin</option>
                             <option value="cliente">Cliente</option>
                         </select>
-                    </div>
-            
+                    </div> -->
+
                     <div class="d-grid">
                         <button type="submit" class="btn btn-success"><strong>Guardar</strong></button>
-                        
+
                         <a href="{% url 'login' %}" class="text-center mt-3">Volver</a>
                     </div>
                 </form>
@@ -78,4 +78,3 @@
     </div>
 </div>
 {% endblock %}
-    

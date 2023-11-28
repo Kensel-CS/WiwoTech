@@ -105,6 +105,10 @@
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Añadimos una sombra al hacer hover */
       transform: scale(1.02);
     }
+
+    .screen{
+      height: 100vh;
+    }
   </style>
 {% endblock %}
 
@@ -113,9 +117,9 @@
     <div class="container content-container">
       <a href="#" class="navbar-brand d-flex align-items-center"><strong>Gamingcrew.cl</strong></a>
       <div>
-        <!-- {% if perfil == 'admin' %}
+        {% if perfil == 'admin' %}
           <a type="button" class="btn btn-sm btn-info" href="{% url 'admin_index' %}">Administrador</a>
-        {% endif %} -->
+        {% endif %}
         <a type="button" class="btn btn-sm btn-warning" href="{% url 'logout' %}">Cerrar sesión</a>
       </div>
     </div>
@@ -123,46 +127,60 @@
   <main>
     <header class="bg-primary text-light text-center py-4">
       <h1 class="display-4"> <strong>Gaming Crew TV</strong> </h1>
-
-
       <span class="badge bg-dark">¡Hola, {{ request.user.first_name }} 👋 !</span>
     </header>
 
-  <div class="container">
-    <div class="row justify-content-center mt-3">
-      <div class="col-md-6">
-        <div class="d-grid gap-2 col-6 mx-auto">
-          <a class="btn btn-dark" href="{% url 'iniciado' %}">Stremear</a>
-          <a class="btn btn-info" href="{% url 'user' %}">Ver transmision</a>
+    <div class="container">
+      <div class="container-fluid screen">
+        <div class="row h-100">
+          <div class="col-12">
+            <iframe src="https://wiwo-tech-test.vercel.app/channel/wiwo?name={{request.user.first_name}}&token={{ token }}" width="100%" height="100%" allow="autoplay; camera; microphone;"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card bg-black text-white">
+            <img src="{% static 'img/lol.jpg' %}" class="card-img-top" alt="Transmisión 1">
+            <div class="card-body">
+              <h5 class="card-title">Wiwo</h5>
+              <p class="card-text">Jugando lolein | PROMO A CHALLENGER
+                <br> #lol #challenger #promochallenger #LAS
+              </p>
+              <a href="{% url 'wiwo' %}" class="btn btn-primary">Ver en vivo</a>
+            </div>
+          </div>
         </div>
 
-        <!-- <div class="container mt-5">
-          <div class="row">
-              <div class="col-md-8">
-                  <h2>Descubre un Mundo de Libros</h2>
-                  <p>Nuestro extenso catálogo te llevará en un viaje literario sin fin. Desde los bestsellers más recientes hasta los clásicos intemporales, desde novelas emocionantes hasta recursos educativos, Megabiblioteca lo tiene todo. Cada libro es cuidadosamente seleccionado para satisfacer una amplia variedad de intereses y gustos.</p>
-              </div>
-              <div class="col-md-4">
-                  <img src="{% static 'img/pexels-eneida-nieves-1222551.jpg' %}" alt="Librería" class="img-fluid rounded">
-              </div>
+        <div class="col-md-4">
+          <div class="card bg-black text-white">
+            <img src="{% static 'img/fixita.jpg' %}" class="card-img-top" alt="Transmisión 2">
+            <div class="card-body">
+              <h5 class="card-title">BiG Fixita#LAS</h5>
+              <p class="card-text">Amasando en vovi 🍞
+                <br> #valorant #radiante #LAS
+              </p>
+              <a href="{% url 'bigfixita' %}" class="btn btn-primary">Ver en vivo</a>
+            </div>
           </div>
-      </div>
+        </div>
 
-      <div class="container mt-5">
-          <div class="row">
-              <div class="col-md-4">
-                  <img  src="{% static 'img/pexels-malte-luk-1848924.jpg' %}" alt="Comodidad" class="img-fluid rounded">
-              </div>
-              <div class="col-md-8">
-                  <h2>Comodidad en Tus Manos</h2>
-                  <p>En Megabiblioteca, creemos en la comodidad. Puedes explorar y comprar libros en línea desde la comodidad de tu hogar o desde cualquier lugar en el que te encuentres. Ofrecemos libros en formato digital y físico, para que puedas elegir cómo prefieres disfrutar de tus lecturas.</p>
-              </div>
+        <div class="col-md-4">
+          <div class="card bg-black text-white">
+            <img src="{% static 'img/teclado.jpg' %}" class="card-img-top" alt="Transmisión 3">
+            <div class="card-body">
+              <h5 class="card-title">Team Sadistic</h5>
+              <p class="card-text">Jugando Fornite con la Masturbanda 😎 <br> ENTRAA  #fornite #team #highlights</p>
+              <a href="#" class="btn btn-primary">Ver en vivo</a>
+            </div>
           </div>
-      </div>
+        </div>
       </div>
     </div>
-  </div> -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </main>
 {% endblock %}
+

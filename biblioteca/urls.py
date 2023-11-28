@@ -11,6 +11,9 @@ urlpatterns = [
   path('auth/registrar', views.registar, name='registrar'),
   path('auth/recuperar', views.recuperar, name='recuperar'),
   path('auth/logout', views.cerrar_sesion, name='logout'),
+  path('wiwo', views.wiwo, name='wiwo'),
+  path('bigfixita', views.bigfixita, name='bigfixita'),
+  path('teamsadistic', views.teamsadistic, name='teamsadistic'),
 
   # pagina cliente
   path('home', views.home, name='home'),
