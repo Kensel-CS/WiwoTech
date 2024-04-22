@@ -145,10 +145,11 @@ ROLES = (
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'biblioteca/static')]
+STATIC_ROOT = [os.path.join(BASE_DIR, 'staticfiles_build' ,'static')]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://wiwo-tech-test.vercel.app",  # Agrega la URL de tu iframe aquí
+    "https://wiwo-tech.vercel.app",  # Agrega la URL de tu iframe aquí
 ]
 
