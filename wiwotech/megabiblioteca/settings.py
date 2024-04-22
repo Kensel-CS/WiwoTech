@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-uu7m5m-ouxd+l8o7r^704aorjh(0i2la_viegejk31o%*ikzk=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['.vercel.app']
 
 BASE_URL = 'http://127.0.0.1:8000'
 
@@ -148,7 +148,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'biblioteca/static')]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOWED_ORIGINS = [
+""" CORS_ALLOWED_ORIGINS = [
     "https://wiwo-tech-test.vercel.app",  # Agrega la URL de tu iframe aquí
-]
+] """
 
