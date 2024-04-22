@@ -1,6 +1,6 @@
-# MEGABIBLIOTECA
+# Proyecto TWITCH WIWOTECH
 
-Solicita libros
+Transmisión en directo con Chat
 
 ## Requisitos de Instalación
 
